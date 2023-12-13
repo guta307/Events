@@ -14,6 +14,16 @@ export class UserController {
     }
   }
 
+  static async findUser(req: Request, res: Response): Promise<Response> {
+    try {
+      const data = req.body;
+      const list = await Person.findOne({ where: data });
+      return res.status(200).json(list);
+    } catch (e) {
+      return res.status(500).json(e);
+    }
+  }
+
   static async listUsers(req: Request, res: Response): Promise<Response> {
     try {
       const list = await Person.findAll();

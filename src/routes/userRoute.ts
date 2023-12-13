@@ -2,6 +2,8 @@ import { Router } from "express";
 import { UserController } from "../controllers/userController/index.js";
 const router = Router();
 
+router.post("/user/findUser", UserController.findUser);
+
 router.get("/user/listAll", UserController.listUsers);
 
 router.get("/user/listAdmins", UserController.listAdmins);
