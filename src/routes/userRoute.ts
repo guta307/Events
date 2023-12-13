@@ -10,4 +10,6 @@ router.get("/user/listClients", UserController.listClients);
 
 router.post("/user/create", UserController.createUser);
 
+router.put("/user/update/:id", UserController.updateUser);
+
 export default router;

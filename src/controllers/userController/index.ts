@@ -40,4 +40,16 @@ export class UserController {
       return res.status(500).json(e);
     }
   }
+
+  static async updateUser(req: Request, res: Response): Promise<Response> {
+    try {
+      const { id } = req.params;
+      const newData = req.body;
+      await Person.update(newData, { where: { id: Number(id) } });
+      const person = await Person.findByPk(id);
+      return res.status(200).json(person);
+    } catch (e) {
+      return res.status(500).json(e);
+    }
+  }
 }
