@@ -10,7 +10,7 @@ import { setupRelations } from "./relations.js";
 const connectionInfo = {
   database: "login",
   username: "root",
-  password: "Ironman307*",
+  password: process.env.DB_PASSWORD,
   dialectOptions: {
     host: "localhost",
     port: "3306",
