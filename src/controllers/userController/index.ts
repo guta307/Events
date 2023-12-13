@@ -52,4 +52,17 @@ export class UserController {
       return res.status(500).json(e);
     }
   }
+
+  static async deleteUser(req: Request, res: Response): Promise<Response> {
+    try {
+      const { id } = req.params;
+      await Person.destroy({ where: { id: Number(id) } });
+      const person = await Person.findByPk(id);
+      return res
+        .status(200)
+        .json({ response: `O user de id ${id} foi deletado com sucesso` });
+    } catch (e) {
+      return res.status(500).json(e);
+    }
+  }
 }
