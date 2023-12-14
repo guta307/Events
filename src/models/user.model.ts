@@ -1,4 +1,11 @@
-import { Table, Column, Model, Scopes } from "sequelize-typescript";
+import {
+  Table,
+  Column,
+  Model,
+  Scopes,
+  PrimaryKey,
+  AutoIncrement,
+} from "sequelize-typescript";
 
 @Scopes(() => ({
   admin: {
@@ -14,8 +21,10 @@ import { Table, Column, Model, Scopes } from "sequelize-typescript";
 }))
 @Table({ paranoid: true })
 class Person extends Model {
-  @Column({ primaryKey: true })
-  id: number = 1;
+  @PrimaryKey
+  @AutoIncrement
+  @Column
+  declare id: number;
 
   @Column
   name: string;
