@@ -7,6 +7,8 @@ import Event from "./event.model.js";
 
 import { setupRelations } from "./relations.js";
 
+import dotenv from "dotenv";
+dotenv.config();
 const connectionInfo = {
   database: "login",
   username: "root",
