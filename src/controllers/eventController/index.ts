@@ -22,4 +22,14 @@ export class EventController {
       return res.status(500).json(e);
     }
   }
+
+  static async findEvent(req: Request, res: Response): Promise<Response> {
+    try {
+      const data = req.body;
+      const list = await Event.findOne({ where: data });
+      return res.status(200).json(list);
+    } catch (e) {
+      return res.status(500).json(e);
+    }
+  }
 }
