@@ -13,4 +13,13 @@ export class EventController {
       return res.status(500).json(e);
     }
   }
+
+  static async listEvents(req: Request, res: Response): Promise<Response> {
+    try {
+      const list = await Event.findAll();
+      return res.status(200).json(list);
+    } catch (e) {
+      return res.status(500).json(e);
+    }
+  }
 }

@@ -4,4 +4,6 @@ const router = Router();
 
 router.post("/event/create", EventController.createEvent);
 
+router.get("/event/listAll", EventController.listEvents);
+
 export default router;
