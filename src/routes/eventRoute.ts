@@ -10,4 +10,5 @@ router.post("/event/findEvent", EventController.findEvent);
 
 router.put("/event/update/:id", EventController.updateEvent);
 
+router.delete("/event/delete/:id", EventController.deleteEvent);
 export default router;

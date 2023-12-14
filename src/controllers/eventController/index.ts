@@ -44,4 +44,17 @@ export class EventController {
       return res.status(500).json(e);
     }
   }
+
+  static async deleteEvent(req: Request, res: Response): Promise<Response> {
+    try {
+      const { id } = req.params;
+      await Event.destroy({ where: { id: Number(id) } });
+      const person = await Event.findByPk(id);
+      return res
+        .status(200)
+        .json({ response: `O evento de id ${id} foi deletado com sucesso` });
+    } catch (e) {
+      return res.status(500).json(e);
+    }
+  }
 }
