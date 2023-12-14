@@ -8,4 +8,6 @@ router.get("/event/listAll", EventController.listEvents);
 
 router.post("/event/findEvent", EventController.findEvent);
 
+router.put("/event/update/:id", EventController.updateEvent);
+
 export default router;

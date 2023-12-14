@@ -32,4 +32,16 @@ export class EventController {
       return res.status(500).json(e);
     }
   }
+
+  static async updateEvent(req: Request, res: Response): Promise<Response> {
+    try {
+      const { id } = req.params;
+      const newData = req.body;
+      await Event.update(newData, { where: { id: Number(id) } });
+      const event = await Event.findByPk(id);
+      return res.status(200).json(event);
+    } catch (e) {
+      return res.status(500).json(e);
+    }
+  }
 }
