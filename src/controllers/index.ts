@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 import { IModel } from "../interface/model.js";
 import { responseHandler } from "../decorators/response.js";
 import { Model } from "sequelize";
-import { json } from "sequelize";
 
 export class BaseController {
   protected static SequelizeModel: IModel;
