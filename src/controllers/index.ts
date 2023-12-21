@@ -28,11 +28,12 @@ export class BaseController {
   }
 
   @responseHandler()
-  static async update(req: Request, res: Response): Promise<Model[] | void> {
+  static async update(req: Request, res: Response): Promise<Model | void> {
     const { id } = req.params;
     const newData = req.body;
     await this.SequelizeModel.update(newData, { where: { id: Number(id) } });
-    const person = await this.SequelizeModel.findByPk(id);
+    const data = await this.SequelizeModel.findByPk(id);
+    return data;
   }
 
   @responseHandler()
